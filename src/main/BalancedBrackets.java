@@ -33,3 +33,7 @@ public class BalancedBrackets {
         return brackets == 0;
     }
 }
+    @Test
+    public void onlyBracketsReturnsTrue() {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[]"));
+    }
