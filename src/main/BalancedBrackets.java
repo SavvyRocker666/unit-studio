@@ -22,18 +22,19 @@ public class BalancedBrackets {
      * @return true if balanced, false otherwise
      */
     public static boolean hasBalancedBrackets(String str) {
-        int brackets = 0;
+        int openBrackets = 0;
+        int closeBrackets = 0;
         for (char ch : str.toCharArray()) {
-            if (ch == '[') {
-                brackets++;
-            } else if (ch == ']') {
-                brackets--;
+            if (ch == '[' && (closeBrackets == 0 || openBrackets == closeBrackets)) {
+                openBrackets++;
+            }
+            if (ch == ']') {
+                closeBrackets++;
             }
         }
-        return brackets == 0;
+        return openBrackets == closeBrackets;
     }
 }
-    @Test
-    public void onlyBracketsReturnsTrue() {
-        assertTrue(BalancedBrackets.hasBalancedBrackets("[]"));
-    }
+
+
+    //https://education.launchcode.org/java-web-development/chapters/unit-testing/studio.html page for class
